@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>タグ選択 - MyTechPulse</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* (CSSのスタイル指定は変更ありません) */
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" style="color:white; text-decoration:none;">MyTechPulse</a>
+    </header>
+    <main>
+        <h1>興味のあるタグを選択してください</h1>
+
+        <form id="tagForm">
+
+            <div class="category">
+                <label>
+                    <input type="checkbox" class="select-all" data-category="language">
+                    🖥️ プログラミング言語 一括選択
+                </label>
+                <div class="tags" data-category="language">
+                    <label><input type="checkbox" name="tags" value="Python">Python</label>
+                    <label><input type="checkbox" name="tags" value="JavaScript">JavaScript</label>
+                    <label><input type="checkbox" name="tags" value="TypeScript">TypeScript</label>
+                    <label><input type="checkbox" name="tags" value="Java">Java</label>
+                    <label><input type="checkbox" name="tags" value="Go">Go</label>
+                    <label><input type="checkbox" name="tags" value="Rust">Rust</label>
+                    <label><input type="checkbox" name="tags" value="Ruby">Ruby</label>
+                    <label><input type="checkbox" name="tags" value="PHP">PHP</label>
+                    </div>
+            </div>
+
+            <div class="category">
+                <label>
+                    <input type="checkbox" class="select-all" data-category="frontend">
+                    🌐 フロントエンド 一括選択
+                </label>
+                <div class="tags" data-category="frontend">
+                    <label><input type="checkbox" name="tags" value="React">React</label>
+                    <label><input type="checkbox" name="tags" value="Next.js">Next.js</label>
+                    <label><input type="checkbox" name="tags" value="Vue.js">Vue.js</label>
+                    <label><input type="checkbox" name="tags" value="CSS">CSS</label>
+                    <label><input type="checkbox" name="tags" value="HTML">HTML</label>
+                    </div>
+            </div>
+
+            <div class="category">
+                <label>
+                    <input type="checkbox" class="select-all" data-category="backend">
+                    ⚙️ バックエンド 一括選択
+                </label>
+                <div class="tags" data-category="backend">
+                    <label><input type="checkbox" name="tags" value="Node.js">Node.js</label>
+                    <label><input type="checkbox" name="tags" value="FastAPI">FastAPI</label>
+                    <label><input type="checkbox" name="tags" value="Django">Django</label>
+                    </div>
+            </div>
+
+            <div class="category">
+                <label>
+                    <input type="checkbox" class="select-all" data-category="cloud">
+                    ☁️ クラウド / インフラ 一括選択
+                </label>
+                <div class="tags" data-category="cloud">
+                    <label><input type="checkbox" name="tags" value="AWS">AWS</label>
+                    <label><input type="checkbox" name="tags" value="GCP">GCP</label>
+                    <label><input type="checkbox" name="tags" value="Azure">Azure</label>
+                    <label><input type="checkbox" name="tags" value="Docker">Docker</label>
+                    <label><input type="checkbox" name="tags" value="Kubernetes">Kubernetes</label>
+                    </div>
+            </div>
+            
+            <div class="category">
+                <label>
+                    <input type="checkbox" class="select-all" data-category="ai">
+                    🤖 AI / データサイエンス 一括選択
+                </label>
+                <div class="tags" data-category="ai">
+                    <label><input type="checkbox" name="tags" value="機械学習">機械学習</label>
+                    <label><input type="checkbox" name="tags" value="LLM">LLM</label>
+                    <label><input type="checkbox" name="tags" value="OpenAI">OpenAI</label>
+                    <label><input type="checkbox" name="tags" value="データ分析">データ分析</label>
+                    </div>
+            </div>
+            
+            <button type="submit" id="submitBtn" disabled>登録して記事一覧へ</button>
+        </form>
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
