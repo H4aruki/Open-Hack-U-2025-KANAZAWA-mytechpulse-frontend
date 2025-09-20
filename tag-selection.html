@@ -5,92 +5,216 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>タグ選択 - MyTechPulse</title>
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        /* (CSSのスタイル指定は変更ありません) */
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <header>
-        <a href="index.html" style="color:white; text-decoration:none;">MyTechPulse</a>
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <img src="img/mytechpulse-logo2.png" alt="MyTechPulse Logo">
+                MyTechPulse
+            </a>
+            <nav class="center-nav">
+                <a href="https://qiita.com/" target="_blank" title="Qiita"><img src="img/Qiita_logo.png" alt="Qiita Logo"></a>
+                <a href="https://zenn.dev/" target="_blank" title="Zenn"><img src="img/Zenn_logo.png" alt="Zenn Logo"></a>
+            </nav>
+            <div class="auth-buttons">
+                <a href="signup.html" class="btn btn-secondary">新規登録</a>
+                <a href="login.html" class="btn btn-primary">ログイン</a>
+            </div>
+        </div>
     </header>
+
     <main>
-        <h1>興味のあるタグを選択してください</h1>
+        <div class="form-page-container">
+            <h1>興味のあるタグを選択してください</h1>
+            <p style="text-align: center; margin-top: -1.5rem; margin-bottom: 2rem; color: #666;">（1つ以上選択してください）</p>
 
-        <form id="tagForm">
+            <form id="tagForm">
 
-            <div class="category">
-                <label>
-                    <input type="checkbox" class="select-all" data-category="language">
-                    🖥️ プログラミング言語 一括選択
-                </label>
-                <div class="tags" data-category="language">
-                    <label><input type="checkbox" name="tags" value="Python">Python</label>
-                    <label><input type="checkbox" name="tags" value="JavaScript">JavaScript</label>
-                    <label><input type="checkbox" name="tags" value="TypeScript">TypeScript</label>
-                    <label><input type="checkbox" name="tags" value="Java">Java</label>
-                    <label><input type="checkbox" name="tags" value="Go">Go</label>
-                    <label><input type="checkbox" name="tags" value="Rust">Rust</label>
-                    <label><input type="checkbox" name="tags" value="Ruby">Ruby</label>
-                    <label><input type="checkbox" name="tags" value="PHP">PHP</label>
+                <div class="category">
+                    <label><input type="checkbox" class="select-all" data-category="language">🖥️ プログラミング言語</label>
+                    <div class="tags" data-category="language">
+                        <label><input type="checkbox" name="tags" value="Python">Python</label>
+                        <label><input type="checkbox" name="tags" value="JavaScript">JavaScript</label>
+                        <label><input type="checkbox" name="tags" value="TypeScript">TypeScript</label>
+                        <label><input type="checkbox" name="tags" value="Java">Java</label>
+                        <label><input type="checkbox" name="tags" value="C">C</label>
+                        <label><input type="checkbox" name="tags" value="C++">C++</label>
+                        <label><input type="checkbox" name="tags" value="C#">C#</label>
+                        <label><input type="checkbox" name="tags" value="Go">Go</label>
+                        <label><input type="checkbox" name="tags" value="Rust">Rust</label>
+                        <label><input type="checkbox" name="tags" value="Ruby">Ruby</label>
+                        <label><input type="checkbox" name="tags" value="PHP">PHP</label>
+                        <label><input type="checkbox" name="tags" value="Swift">Swift</label>
+                        <label><input type="checkbox" name="tags" value="Kotlin">Kotlin</label>
+                        <label><input type="checkbox" name="tags" value="Scala">Scala</label>
+                        <label><input type="checkbox" name="tags" value="Dart">Dart</label>
+                        <label><input type="checkbox" name="tags" value="R">R</label>
+                        <label><input type="checkbox" name="tags" value="Haskell">Haskell</label>
+                        <label><input type="checkbox" name="tags" value="Perl">Perl</label>
+                        <label><input type="checkbox" name="tags" value="Elixir">Elixir</label>
+                        <label><input type="checkbox" name="tags" value="Julia">Julia</label>
                     </div>
-            </div>
+                </div>
 
-            <div class="category">
-                <label>
-                    <input type="checkbox" class="select-all" data-category="frontend">
-                    🌐 フロントエンド 一括選択
-                </label>
-                <div class="tags" data-category="frontend">
-                    <label><input type="checkbox" name="tags" value="React">React</label>
-                    <label><input type="checkbox" name="tags" value="Next.js">Next.js</label>
-                    <label><input type="checkbox" name="tags" value="Vue.js">Vue.js</label>
-                    <label><input type="checkbox" name="tags" value="CSS">CSS</label>
-                    <label><input type="checkbox" name="tags" value="HTML">HTML</label>
+                <div class="category">
+                    <label><input type="checkbox" class="select-all" data-category="frontend">🌐 フロントエンド</label>
+                    <div class="tags" data-category="frontend">
+                        <label><input type="checkbox" name="tags" value="React">React</label>
+                        <label><input type="checkbox" name="tags" value="Next.js">Next.js</label>
+                        <label><input type="checkbox" name="tags" value="Vue.js">Vue.js</label>
+                        <label><input type="checkbox" name="tags" value="Nuxt.js">Nuxt.js</label>
+                        <label><input type="checkbox" name="tags" value="Angular">Angular</label>
+                        <label><input type="checkbox" name="tags" value="Svelte">Svelte</label>
+                        <label><input type="checkbox" name="tags" value="Astro">Astro</label>
+                        <label><input type="checkbox" name="tags" value="TailwindCSS">TailwindCSS</label>
+                        <label><input type="checkbox" name="tags" value="Bootstrap">Bootstrap</label>
+                        <label><input type="checkbox" name="tags" value="CSS">CSS</label>
+                        <label><input type="checkbox" name="tags" value="Sass/SCSS">Sass/SCSS</label>
+                        <label><input type="checkbox" name="tags" value="HTML">HTML</label>
+                        <label><input type="checkbox" name="tags" value="Webpack">Webpack</label>
+                        <label><input type="checkbox" name="tags" value="Vite">Vite</label>
                     </div>
-            </div>
+                </div>
 
-            <div class="category">
-                <label>
-                    <input type="checkbox" class="select-all" data-category="backend">
-                    ⚙️ バックエンド 一括選択
-                </label>
-                <div class="tags" data-category="backend">
-                    <label><input type="checkbox" name="tags" value="Node.js">Node.js</label>
-                    <label><input type="checkbox" name="tags" value="FastAPI">FastAPI</label>
-                    <label><input type="checkbox" name="tags" value="Django">Django</label>
+                <div class="category">
+                    <label><input type="checkbox" class="select-all" data-category="backend">⚙️ バックエンド / フレームワーク</label>
+                    <div class="tags" data-category="backend">
+                        <label><input type="checkbox" name="tags" value="Node.js">Node.js</label>
+                        <label><input type="checkbox" name="tags" value="Express">Express</label>
+                        <label><input type="checkbox" name="tags" value="FastAPI">FastAPI</label>
+                        <label><input type="checkbox" name="tags" value="Django">Django</label>
+                        <label><input type="checkbox" name="tags" value="Flask">Flask</label>
+                        <label><input type="checkbox" name="tags" value="Spring Boot">Spring Boot</label>
+                        <label><input type="checkbox" name="tags" value="Ruby on Rails">Ruby on Rails</label>
+                        <label><input type="checkbox" name="tags" value="Laravel">Laravel</label>
+                        <label><input type="checkbox" name="tags" value="NestJS">NestJS</label>
+                        <label><input type="checkbox" name="tags" value="GraphQL">GraphQL</label>
                     </div>
-            </div>
+                </div>
 
-            <div class="category">
-                <label>
-                    <input type="checkbox" class="select-all" data-category="cloud">
-                    ☁️ クラウド / インフラ 一括選択
-                </label>
-                <div class="tags" data-category="cloud">
-                    <label><input type="checkbox" name="tags" value="AWS">AWS</label>
-                    <label><input type="checkbox" name="tags" value="GCP">GCP</label>
-                    <label><input type="checkbox" name="tags" value="Azure">Azure</label>
-                    <label><input type="checkbox" name="tags" value="Docker">Docker</label>
-                    <label><input type="checkbox" name="tags" value="Kubernetes">Kubernetes</label>
+                <div class="category">
+                    <label><input type="checkbox" class="select-all" data-category="database">📦 データベース / ストレージ</label>
+                    <div class="tags" data-category="database">
+                        <label><input type="checkbox" name="tags" value="MySQL">MySQL</label>
+                        <label><input type="checkbox" name="tags" value="PostgreSQL">PostgreSQL</label>
+                        <label><input type="checkbox" name="tags" value="SQLite">SQLite</label>
+                        <label><input type="checkbox" name="tags" value="MongoDB">MongoDB</label>
+                        <label><input type="checkbox" name="tags" value="Redis">Redis</label>
+                        <label><input type="checkbox" name="tags" value="Firebase">Firebase</label>
+                        <label><input type="checkbox" name="tags" value="Supabase">Supabase</label>
+                        <label><input type="checkbox" name="tags" value="DynamoDB">DynamoDB</label>
+                        <label><input type="checkbox" name="tags" value="Elasticsearch">Elasticsearch</label>
+                        <label><input type="checkbox" name="tags" value="Oracle Database">Oracle Database</label>
                     </div>
-            </div>
-            
-            <div class="category">
-                <label>
-                    <input type="checkbox" class="select-all" data-category="ai">
-                    🤖 AI / データサイエンス 一括選択
-                </label>
-                <div class="tags" data-category="ai">
-                    <label><input type="checkbox" name="tags" value="機械学習">機械学習</label>
-                    <label><input type="checkbox" name="tags" value="LLM">LLM</label>
-                    <label><input type="checkbox" name="tags" value="OpenAI">OpenAI</label>
-                    <label><input type="checkbox" name="tags" value="データ分析">データ分析</label>
+                </div>
+
+                <div class="category">
+                    <label><input type="checkbox" class="select-all" data-category="cloud">☁️ クラウド / インフラ</label>
+                    <div class="tags" data-category="cloud">
+                        <label><input type="checkbox" name="tags" value="AWS">AWS</label>
+                        <label><input type="checkbox" name="tags" value="GCP">GCP</label>
+                        <label><input type="checkbox" name="tags" value="Azure">Azure</label>
+                        <label><input type="checkbox" name="tags" value="Docker">Docker</label>
+                        <label><input type="checkbox" name="tags" value="Kubernetes">Kubernetes</label>
+                        <label><input type="checkbox" name="tags" value="Terraform">Terraform</label>
+                        <label><input type="checkbox" name="tags" value="Ansible">Ansible</label>
+                        <label><input type="checkbox" name="tags" value="Cloudflare">Cloudflare</label>
+                        <label><input type="checkbox" name="tags" value="Netlify">Netlify</label>
+                        <label><input type="checkbox" name="tags" value="Vercel">Vercel</label>
                     </div>
-            </div>
-            
-            <button type="submit" id="submitBtn" disabled>登録して記事一覧へ</button>
-        </form>
+                </div>
+
+                <div class="category">
+                    <label><input type="checkbox" class="select-all" data-category="devtools">🛠️ 開発ツール / CI/CD</label>
+                    <div class="tags" data-category="devtools">
+                        <label><input type="checkbox" name="tags" value="Git">Git</label>
+                        <label><input type="checkbox" name="tags" value="GitHub">GitHub</label>
+                        <label><input type="checkbox" name="tags" value="GitLab">GitLab</label>
+                        <label><input type="checkbox" name="tags" value="Bitbucket">Bitbucket</label>
+                        <label><input type="checkbox" name="tags" value="CircleCI">CircleCI</label>
+                        <label><input type="checkbox" name="tags" value="Jenkins">Jenkins</label>
+                        <label><input type="checkbox" name="tags" value="GitHub Actions">GitHub Actions</label>
+                        <label><input type="checkbox" name="tags" value="CI/CD">CI/CD</label>
+                        <label><input type="checkbox" name="tags" value="DevOps">DevOps</label>
+                    </div>
+                </div>
+
+                <div class="category">
+                    <label><input type="checkbox" class="select-all" data-category="ai">🤖 AI / データサイエンス</label>
+                    <div class="tags" data-category="ai">
+                        <label><input type="checkbox" name="tags" value="機械学習">機械学習</label>
+                        <label><input type="checkbox" name="tags" value="深層学習">深層学習</label>
+                        <label><input type="checkbox" name="tags" value="人工知能">人工知能</label>
+                        <label><input type="checkbox" name="tags" value="TensorFlow">TensorFlow</label>
+                        <label><input type="checkbox" name="tags" value="PyTorch">PyTorch</label>
+                        <label><input type="checkbox" name="tags" value="scikit-learn">scikit-learn</label>
+                        <label><input type="checkbox" name="tags" value="OpenAI">OpenAI</label>
+                        <label><input type="checkbox" name="tags" value="LLM">LLM</label>
+                        <label><input type="checkbox" name="tags" value="データ分析">データ分析</label>
+                        <label><input type="checkbox" name="tags" value="自然言語処理（NLP）">自然言語処理（NLP）</label>
+                    </div>
+                </div>
+
+                <div class="category">
+                    <label><input type="checkbox" class="select-all" data-category="mobile">📱 モバイル開発</label>
+                    <div class="tags" data-category="mobile">
+                        <label><input type="checkbox" name="tags" value="iOS">iOS</label>
+                        <label><input type="checkbox" name="tags" value="Android">Android</label>
+                        <label><input type="checkbox" name="tags" value="Flutter">Flutter</label>
+                        <label><input type="checkbox" name="tags" value="React Native">React Native</label>
+                        <label><input type="checkbox" name="tags" value="SwiftUI">SwiftUI</label>
+                        <label><input type="checkbox" name="tags" value="Jetpack Compose">Jetpack Compose</label>
+                    </div>
+                </div>
+
+                <div class="category">
+                    <label><input type="checkbox" class="select-all" data-category="other">🧑‍💻 その他エンジニアリング関連</label>
+                    <div class="tags" data-category="other">
+                        <label><input type="checkbox" name="tags" value="アルゴリズム">アルゴリズム</label>
+                        <label><input type="checkbox" name="tags" value="データ構造">データ構造</label>
+                        <label><input type="checkbox" name="tags" value="セキュリティ">セキュリティ</label>
+                        <label><input type="checkbox" name="tags" value="暗号化">暗号化</label>
+                        <label><input type="checkbox" name="tags" value="テスト自動化">テスト自動化</label>
+                        <label><input type="checkbox" name="tags" value="TDD（テスト駆動開発）">TDD（テスト駆動開発）</label>
+                        <label><input type="checkbox" name="tags" value="Clean Architecture">Clean Architecture</label>
+                        <label><input type="checkbox" name="tags" value="デザインパターン">デザインパターン</label>
+                        <label><input type="checkbox" name="tags" value="リファクタリング">リファクタリング</label>
+                        <label><input type="checkbox" name="tags" value="アジャイル開発">アジャイル開発</label>
+                        <label><input type="checkbox" name="tags" value="Scrum">Scrum</label>
+                    </div>
+                </div>
+                
+                <button type="submit" id="submitBtn" class="btn btn-primary" disabled>登録して記事一覧へ</button>
+            </form>
+        </div>
     </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Created by</h3>
+                <p>Harry</p>
+                <p>K.Haruki</p>
+            </div>
+            <div class="footer-column">
+                <h3>Event</h3>
+                <p>Open Hack U 2025 Kanazawa</p>
+            </div>
+            <div class="footer-column">
+                <h3>Powered by</h3>
+                <ul>
+                    <li><a href="https://qiita.com/" target="_blank">Qiita</a></li>
+                    <li><a href="https://zenn.dev/" target="_blank">Zenn</a></li>
+                    <li><a href="#" target="_blank">Other Tech Sites</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
 
     <script src="js/main.js"></script>
 </body>

@@ -1,4 +1,4 @@
-// js/main.js
+// mytechpulse-frontend/js/main.js
 
 // グローバルな定数
 const API_BASE_URL = 'http://127.0.0.1:8000';
@@ -125,7 +125,8 @@ const articlesPageLogic = () => {
 
     const qiitaContainer = document.getElementById('qiitaArticlesContainer');
     const zennContainer = document.getElementById('zennArticlesContainer');
-    
+    const tagsListContainer = document.getElementById('tagsList'); // サイドバーのUL要素を取得
+
     // 記事カードを作成してDOMに追加するヘルパー関数
     const createArticleCard = (article, container) => {
         const card = document.createElement('div');
@@ -151,35 +152,59 @@ const articlesPageLogic = () => {
         container.appendChild(card);
     };
 
-    // メインの処理: APIを呼び出して記事を表示する
-    const loadArticles = async () => {
-        const res = await fetch(`${API_BASE_URL}/news/personal_news`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ username })
+    // サイドバーにタグリストを表示する関数を追加
+    const displayUserTags = (tags) => {
+        if (!tagsListContainer || !tags || tags.length === 0) return;
+
+        tagsListContainer.innerHTML = ''; // 一旦中身を空にする
+        tags.forEach(tag => {
+            const listItem = document.createElement('li');
+            listItem.textContent = tag;
+            tagsListContainer.appendChild(listItem);
         });
-        const data = await res.json();
+    };
 
-        if (!qiitaContainer || !zennContainer) return;
+    // メインの処理: APIを呼び出して記事とタグを表示する
+    const loadArticlesAndTags = async () => {
+        try {
+            const res = await fetch(`${API_BASE_URL}/news/personal_news`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username })
+            });
+            const data = await res.json();
 
-        // Qiita
-        qiitaContainer.innerHTML = '<h2>Qiita Articles</h2>';
-        if (data.qiita_articles && data.qiita_articles.length > 0) {
-            data.qiita_articles.forEach(article => createArticleCard(article, qiitaContainer));
-        } else {
-            qiitaContainer.innerHTML += '<p>おすすめのQiita記事はありません。</p>';
-        }
+            // バックエンドからのレスポンスに user_tags が含まれていると仮定
+            // 例: { qiita_articles: [...], zenn_articles: [...], user_tags: ["Python", "React", "AWS"] }
+            if (data.user_tags) {
+                displayUserTags(data.user_tags);
+            }
 
-        // Zenn
-        zennContainer.innerHTML = '<h2>Zenn Articles</h2>';
-        if (data.zenn_articles && data.zenn_articles.length > 0) {
-            data.zenn_articles.forEach(article => createArticleCard(article, zennContainer));
-        } else {
-            zennContainer.innerHTML += '<p>おすすめのZenn記事はありません。</p>';
+            if (!qiitaContainer || !zennContainer) return;
+
+            // Qiita
+            qiitaContainer.innerHTML = '<h2>Qiita Articles</h2>';
+            if (data.qiita_articles && data.qiita_articles.length > 0) {
+                data.qiita_articles.forEach(article => createArticleCard(article, qiitaContainer));
+            } else {
+                qiitaContainer.innerHTML += '<p>おすすめのQiita記事はありません。</p>';
+            }
+
+            // Zenn
+            zennContainer.innerHTML = '<h2>Zenn Articles</h2>';
+            if (data.zenn_articles && data.zenn_articles.length > 0) {
+                data.zenn_articles.forEach(article => createArticleCard(article, zennContainer));
+            } else {
+                zennContainer.innerHTML += '<p>おすすめのZenn記事はありません。</p>';
+            }
+        } catch (error) {
+            console.error('記事の読み込みに失敗しました:', error);
+            qiitaContainer.innerHTML = '<h2>記事の読み込みエラー</h2><p>記事の取得に失敗しました。時間をおいて再度お試しください。</p>';
+            zennContainer.innerHTML = '';
         }
     };
 
-    loadArticles();
+    loadArticlesAndTags(); // 関数名を変更
 };
 
 // 現在のページに応じて適切な処理を実行
